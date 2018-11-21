@@ -10,7 +10,8 @@ rule all:
         expand('preprocess/samtools/flagstat/{sample}.flagstat', sample=samples.index),
         expand('preprocess/samtools/idxstats/{sample}.tsv', sample=samples.index),
         expand('preprocess/samtools/depth/{sample}-extent.tsv', sample=samples.index),
-        expand('preprocess/fastqs/{sample}.fastq', sample=samples.index)
+        expand('preprocess/fastqs/{sample}.fastq', sample=samples.index),
+        expand('preprocess/subsamples/{sample}_sub50.fastq', sample=samples.index),
 
 
 # include rules for each step in workflow

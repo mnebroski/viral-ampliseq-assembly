@@ -117,3 +117,11 @@ rule bam_to_fastq:
         '../envs/bwa.yaml'
     shell:
         "samtools bam2fq {input} > {output}"
+
+rule subsample_50:
+    input:
+        'preprocess/fastqs/{sample}.fastq'
+    output:
+        'preprocess/subsamples/{sample}_sub50.fastq'
+    shell:
+        "seqtk sample -s100 {input} 0.5 > {output}"
